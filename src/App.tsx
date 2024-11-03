@@ -4,10 +4,11 @@ import SearchInput from "./components/SearchInput";
 import { useState } from "react";
 import TweetGrid from "./components/TweetGrid";
 import TopicLabel from "./components/TopicLabel";
+import HeadingSearch from "./components/HeadingSearch";
+import ChartContainer from "./components/ChartContainer";
 
 const App = () => {
   const [searhTopic, setSearchTopic] = useState("");
-  // const [activeTopic, setActiveTopic] = useState<string | null>(null);
 
   return (
     <>
@@ -32,14 +33,22 @@ const App = () => {
           <NavBar />
         </GridItem>
         <GridItem area="main">
+          <HeadingSearch searchTopic={searhTopic} />
           <Box>
             <SearchInput
               onSearchTopic={(query) => setSearchTopic(query)}
               queryLabel={searhTopic}
             />
-            <TopicLabel onClickTopic={(query) => setSearchTopic(query)} querySearch={searhTopic} />
+            <TopicLabel
+              onClickTopic={(query) => setSearchTopic(query)}
+              querySearch={searhTopic}
+            />
           </Box>
           <TweetGrid onSearchTopic={searhTopic} />
+
+          <Box>
+            <ChartContainer onSearchTopic={searhTopic} />
+          </Box>
         </GridItem>
       </Grid>
     </>

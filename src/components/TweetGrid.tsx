@@ -1,4 +1,4 @@
-import { Container, SimpleGrid, Text } from "@chakra-ui/react";
+import { Container, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import useSentiment from "../hooks/useSentiment";
 import TweetCard from "./TweetCard";
 
@@ -8,11 +8,17 @@ interface Props {
 
 const TweetGrid = ({ onSearchTopic }: Props) => {
   if (onSearchTopic === "") return null;
-  const { data, error } = useSentiment(onSearchTopic);
-  // const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
-  console.log(data);
+  const { data, error, isLoading } = useSentiment(onSearchTopic);
 
   if (error) return <Text>{error}</Text>;
+
+  if (isLoading) {
+    return (
+      <Container maxW="1700px" centerContent>
+        <Spinner size="xl" />
+      </Container>
+    );
+  }
 
   return (
     <Container maxW="1700px">
@@ -21,7 +27,7 @@ const TweetGrid = ({ onSearchTopic }: Props) => {
         padding="30px"
         spacing={10}
       >
-        {data.map((sentiment) => (
+        {data.slice(0, 6).map((sentiment) => (
           <TweetCard key={sentiment._id} sentiment={sentiment} />
         ))}
       </SimpleGrid>

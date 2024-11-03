@@ -1,4 +1,4 @@
-import { Badge, Box, Button, Text } from "@chakra-ui/react";
+import { Badge, Box, Button, Container, Text } from "@chakra-ui/react";
 import useTrending from "../hooks/useTrending";
 import { useEffect, useState } from "react";
 
@@ -23,11 +23,11 @@ const TopicLabel = ({ onClickTopic, querySearch }: Props) => {
   if (error) return null;
 
   return (
-    <>
+    <Container maxW="1700px">
       <Box display="flex" justifyContent="center" mt="10">
         <Text>Choose trending topics today</Text>
       </Box>
-      <Box display="flex" justifyContent="center" mt="3">
+      <Box display="flex" justifyContent="center" mt="5">
         <Box>
           {data.map((label) => (
             <Button
@@ -40,6 +40,7 @@ const TopicLabel = ({ onClickTopic, querySearch }: Props) => {
             >
               <Badge
                 marginX={2}
+                marginY={1}
                 paddingY={2}
                 paddingX={4}
                 borderRadius={20}
@@ -51,7 +52,7 @@ const TopicLabel = ({ onClickTopic, querySearch }: Props) => {
           ))}
         </Box>
       </Box>
-    </>
+    </Container>
   );
 };
 

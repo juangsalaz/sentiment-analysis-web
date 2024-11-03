@@ -1,4 +1,10 @@
-import { Input, InputGroup, InputLeftElement, Box } from "@chakra-ui/react";
+import {
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Box,
+  Container,
+} from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { useState, useEffect } from "react";
 
@@ -21,7 +27,7 @@ const SearchInput = ({ onSearchTopic, queryLabel }: Props) => {
         onSearchTopic(inputValue);
       }}
     >
-      <Box display="flex" justifyContent="center" mt="10">
+      <Container maxW="1700px" display="flex" justifyContent="center" mt={10}>
         <InputGroup
           size="lg"
           maxW="600px"
@@ -44,7 +50,7 @@ const SearchInput = ({ onSearchTopic, queryLabel }: Props) => {
             _placeholder={{ color: "gray.500", fontWeight: "400" }}
           />
         </InputGroup>
-      </Box>
+      </Container>
     </form>
   );
 };
