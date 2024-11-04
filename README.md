@@ -1,13 +1,16 @@
 # TwitSentiment
 **TwitSentiment** is website to show the sentiment value of twitter post base on the topic and also showing percentage of sentiments for each topic.
 
+
 ## My approach to building TwitSentiment
+
 * Because I have limit with the Twitter API access, so I generated my own dataset using [OpenAI API](https://openai.com/index/openai-api/). I generated fake tweets dataset with running a cron job periodically (to simulate the realtime twitter users post data) then calcullate the sentiment score using [sentiment javascript library](https://www.npmjs.com/package/sentiment).
 * After generated dataset and get the sentiment score, I stored the dataset into [MongoDB Atlas](https://cloud.mongodb.com/). 
 * Next step, I created Restful API using Node Js.
 * There is two API endpoint, this is the [API docummentation](https://documenter.getpostman.com/view/3460037/2sAY4xCNm5)
 * Ok, that is for the backend side, now I have dataset with the sentiment value, and the API endpoint to get the data, ok let's continue for the frontend side.
 * Frontend side I'm using React Js, showing the tweets data into card elements.
+* Showing modal when click the card for details info.
 * I put different colors for each card sentiment.
 * I also put emoji for each card sentiment.
 * I created badge label to show today's trending topic, it's became suggestion for users. When user click the badge, it will show the topic's tweets data.
@@ -25,6 +28,13 @@ const sentimentAnalysis = sentiment.analyze(tweetText);
 
 * [Chakra UI](chakra-ui.com) fast for craete layout and styling the web page, the elements you need is ready in Chakra.
 * [React Chart JS ](https://www.npmjs.com/package/react-chartjs-2) easy way to create a chart
+
+
+## Future Improvements
+* Make the modal background color same like the clicked card.
+* Put show more link and pagination in the card list
+* Implement real Twitter API
+  
 
 ## Run Locally
 Clone the project
