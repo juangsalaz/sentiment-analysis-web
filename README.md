@@ -4,9 +4,9 @@
 
 ## My approach to building TwitSentiment
 
-* Because I have limit with the Twitter API access, so I generated my own dataset using [OpenAI API](https://openai.com/index/openai-api/). I generated fake tweets dataset with running a cron job periodically (to simulate the realtime twitter users post data) then calcullate the sentiment score using [sentiment javascript library](https://www.npmjs.com/package/sentiment).
+* Because I have limit with the Twitter API access, so I generated my own dataset using [OpenAI API](https://openai.com/index/openai-api/). I generated fake tweets dataset with running a cron job periodically (to simulate the realtime twitter users post data) then calculate the sentiment score using [sentiment javascript library](https://www.npmjs.com/package/sentiment).
 * After generated dataset and get the sentiment score, I stored the dataset into [MongoDB Atlas](https://cloud.mongodb.com/). 
-* Next step, I created Restful API using Node Js.
+* Next step, I created [Restful API](https://github.com/juangsalaz/sentiment-analysis-api) using Node Js.
 * There is two API endpoint, this is the [API docummentation](https://documenter.getpostman.com/view/3460037/2sAY4xCNm5)
 * Ok, that is for the backend side, now I have dataset with the sentiment value, and the API endpoint to get the data, ok let's continue for the frontend side.
 * Frontend side I'm using React Js, showing the tweets data into card elements.
@@ -16,8 +16,11 @@
 * I created badge label to show today's trending topic, it's became suggestion for users. When user click the badge, it will show the topic's tweets data.
 * The last, I created a chart to show percentage of sentiment for a topic. To simulated real time dataset, we need to run the cron job in the backend and and I put setInterval in every 5 minutes call the API to get the updated data.
 
+## Data Usage
+For data usage docummentation you can look at [the backend repo Readme file](https://github.com/juangsalaz/sentiment-analysis-api/blob/main/README.md)
+
 ## Libraries
-* [Sentiment javascript library](https://www.npmjs.com/package/sentiment), easy way to calcullate the sentiment score,  you can doing something like this:
+* [Sentiment javascript library](https://www.npmjs.com/package/sentiment), easy way to calculate the sentiment score,  you can doing something like this:
 
 ```
 import Sentiment from 'sentiment';
