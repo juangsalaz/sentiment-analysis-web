@@ -5,15 +5,11 @@ interface Props {
 }
 
 const HeadingSearch = ({ searchTopic }: Props) => {
-  if (!searchTopic)
-    return (
-      <Container maxW="1700px" display="flex" justifyContent="center" mt="10">
-        <Heading>Search trending topic and get the sentiment</Heading>
-      </Container>
-    );
+  let headingTitle = "Search trending topic and get the sentiment";
+  if (searchTopic) headingTitle = "The sentiments of " + searchTopic + " topic";
   return (
     <Container maxW="1700px" display="flex" justifyContent="center" mt="10">
-      <Heading>The sentiments of {searchTopic} topic</Heading>
+      <Heading>{headingTitle}</Heading>
     </Container>
   );
 };
