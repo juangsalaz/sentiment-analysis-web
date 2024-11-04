@@ -1,12 +1,11 @@
 import {
-  Button,
   Container,
   HStack,
   Heading,
+  IconButton,
   Modal,
   ModalBody,
   ModalContent,
-  ModalFooter,
   ModalHeader,
   ModalOverlay,
   SimpleGrid,
@@ -16,6 +15,7 @@ import {
 import useSentiment, { Sentiment } from "../hooks/useSentiment";
 import TweetCard from "./TweetCard";
 import { useState } from "react";
+import { CloseIcon } from "@chakra-ui/icons";
 
 interface Props {
   onSearchTopic: string;
@@ -66,11 +66,21 @@ const TweetGrid = ({ onSearchTopic }: Props) => {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bg="gray.800">
           <ModalHeader>
-            <Heading>Topic: {selectedCard?.topic}</Heading>
+            <Heading textTransform="capitalize">{selectedCard?.topic}</Heading>
+
+            <IconButton
+              aria-label="Close modal"
+              icon={<CloseIcon />}
+              position="absolute"
+              right="1rem"
+              top="1rem"
+              variant="link" // Make it look like a text link
+              onClick={onClose}
+            />
           </ModalHeader>
-          <ModalBody>
+          <ModalBody paddingBottom={5}>
             <Text>{selectedCard?.tweet}</Text>
             <br />
             <HStack>
@@ -88,11 +98,6 @@ const TweetGrid = ({ onSearchTopic }: Props) => {
               {selectedCard?.score}
             </Text>
           </ModalBody>
-          <ModalFooter>
-            <Button colorScheme="blue" onClick={onClose}>
-              Close
-            </Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </Container>
