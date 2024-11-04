@@ -30,7 +30,7 @@ const TweetGrid = ({ onSearchTopic }: Props) => {
 
   if (isLoading) {
     return (
-      <Container maxW="1700px" centerContent>
+      <Container maxW="1700px" marginY={10} centerContent>
         <Spinner size="xl" />
       </Container>
     );
