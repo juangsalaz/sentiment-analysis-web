@@ -49,7 +49,7 @@ const SentimentPieChart = ({ data, chartTile }: Props) => {
     return (
       <Container maxW="1700px">
         <VStack>
-          <Heading mb={10}>Sentiment percentage for {chartTile} topic</Heading>
+          <Heading mb={5}>Sentiment percentage for {chartTile} topic</Heading>
           <Box
             style={{
               width: "500px",

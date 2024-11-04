@@ -2,7 +2,6 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  Box,
   Container,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";

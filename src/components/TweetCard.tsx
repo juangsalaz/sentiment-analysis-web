@@ -16,9 +16,10 @@ import "../assets/css/ParalaxEffect.css";
 
 interface Props {
   sentiment: Sentiment;
+  onCardClick: (sentiment: Sentiment) => void;
 }
 
-const TweetCard = ({ sentiment }: Props) => {
+const TweetCard = ({ sentiment, onCardClick }: Props) => {
   const colors: Record<string, string> = {
     positive: "#5C8CD6",
     negative: "#F29C56",
@@ -39,7 +40,11 @@ const TweetCard = ({ sentiment }: Props) => {
       glareMaxOpacity={0.45}
       scale={1.02}
     >
-      <Card className="inner-element">
+      <Card
+        className="inner-element"
+        cursor="pointer"
+        onClick={() => onCardClick(sentiment)}
+      >
         <CardBody
           padding="0"
           bg={colors[sentiment.calculatedSentiment]}

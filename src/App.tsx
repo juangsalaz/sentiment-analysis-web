@@ -2,7 +2,7 @@ import { Box, Grid, GridItem } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import SearchInput from "./components/SearchInput";
 import { useState } from "react";
-import TweetGrid from "./components/TweetGrid";
+import TweetGrid from "./components/TweetGrid.tsx";
 import TopicLabel from "./components/TopicLabel";
 import HeadingSearch from "./components/HeadingSearch";
 import ChartContainer from "./components/ChartContainer";
